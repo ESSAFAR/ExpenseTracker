@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, FormEvent, useEffect } from "react";
 
 interface Product {
   productName: String;
@@ -11,6 +11,7 @@ interface TableProps {
   onDelete : (product : Product)=>void;
 }
 
+
 const categories = ["Groceries", "Utilities", "Entertainment"]
 
 const Table = ({ productList , onDelete}: TableProps) => {
@@ -19,14 +20,19 @@ const Table = ({ productList , onDelete}: TableProps) => {
   useEffect(() => {
     setDisplayedProductlist(productList);
   }, [productList]);
+
+
+
+
   return (
     <>
       <div className="filterList">
-        <select
+        <select 
+        onChange={()=>setDisplayedProductlist(productList.filter((product)=>event.target.value ==="0" || product.category=== categories[parseInt(event.target.value)-1]))}
           className="form-select form-select-lg mb-3"
           aria-label=".form-select-lg example"
         >
-          <option selected>Category</option>
+          <option selected value="0">Category</option>
           <option value="1">Groceries</option>
           <option value="2">Utilities</option>
           <option value="3">Entertainment</option>
@@ -49,7 +55,7 @@ const Table = ({ productList , onDelete}: TableProps) => {
               <tr key={5}>
                 <th scope="row">{product.productName}</th>
                 <td>{product.amount}</td>
-                <td>{categories[parseInt(product.category)-1]}</td>
+                <td>{product.category}</td>
                 <td>
                   <button type="button" className="btn btn-outline-danger" onClick={()=>onDelete(product)}>
                     Delete
