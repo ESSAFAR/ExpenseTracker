@@ -1,0 +1,49 @@
+:root{
+  --text_color : rgb(0, 0, 0);
+  --second_color : rgb(23, 123, 253);
+  --background_color : rgb(255, 255, 255);
+}
+
+html, body{
+  margin: 0;
+  padding: 0;
+}
+
+.main{
+  padding: 7vh 35vh ;
+  background-color: var(--background_color);
+  color: var(--text_color);
+}
+
+.dark{
+  --color2:black;
+  --text_color : rgb(254, 254, 254);
+      --background_color: rgb(0, 0, 0);
+}
+
+form{
+  border: solid 2px var(--second_color);
+  padding: 4vh ;
+  margin: 4vh;
+}
+.filterList, .table{
+  padding: 4vh ;
+  margin: 4vh;
+}
+
+.form-group{
+  margin: 4vh;
+}
+
+.text-center{
+  padding: 2vh 2vh 10vh 2vh;
+}
+
+
+.submit{
+  margin: 3vh ;
+}
+
+
+
+
