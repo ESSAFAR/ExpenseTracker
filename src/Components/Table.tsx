@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface Product {
   productName: String;
@@ -8,10 +8,17 @@ interface Product {
 
 interface TableProps {
   productList: Product[];
+  onDelete : (product : Product)=>void;
 }
 
-const Table = ({ productList }: TableProps) => {
-  let [displayedProductlist, setDisplayedProductlist] = useState(productList);
+const categories = ["Groceries", "Utilities", "Entertainment"]
+
+const Table = ({ productList , onDelete}: TableProps) => {
+  const [displayedProductlist, setDisplayedProductlist] = useState(productList);
+
+  useEffect(() => {
+    setDisplayedProductlist(productList);
+  }, [productList]);
   return (
     <>
       <div className="filterList">
@@ -26,6 +33,8 @@ const Table = ({ productList }: TableProps) => {
         </select>
       </div>
       <div>
+      <h3 className="text-center">{displayedProductlist.length === 0 && "No item found 🙂"}</h3>
+      {displayedProductlist.length !== 0 &&
         <table className="table table-striped">
           <thead>
             <tr>
@@ -40,9 +49,9 @@ const Table = ({ productList }: TableProps) => {
               <tr key={5}>
                 <th scope="row">{product.productName}</th>
                 <td>{product.amount}</td>
-                <td>{product.category}</td>
+                <td>{categories[parseInt(product.category)-1]}</td>
                 <td>
-                  <button type="button" className="btn btn-outline-danger">
+                  <button type="button" className="btn btn-outline-danger" onClick={()=>onDelete(product)}>
                     Delete
                   </button>
                 </td>
@@ -50,9 +59,12 @@ const Table = ({ productList }: TableProps) => {
             ))}
           </tbody>
         </table>
+}
       </div>
+      
     </>
   );
+  
 };
 
 export default Table;

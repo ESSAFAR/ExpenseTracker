@@ -4,9 +4,13 @@ import Table from "./Components/Table";
 import "./index.css";
 
 function App() {
-  let [isDark, setDarkness] = useState(false);
+  const [isDark, setDarkness] = useState(false);
 
-  let [productList, setproductList] = useState([
+
+
+  
+
+  const [productList, setproductList] = useState([
     {
       productName: "Apple",
       amount: 2,
@@ -38,8 +42,8 @@ function App() {
         </label>
       </div>
       <h1 className="text-center text-primary">Expense Tracker</h1>
-      <Form />
-      <Table productList={productList} />
+      <Form addProduct = {(product)=>setproductList([...productList, product])}/>
+      <Table productList={productList} onDelete={(selectedProduct)=>setproductList(productList.filter((product)=>product!==selectedProduct))}/>
     </div>
   );
 }
