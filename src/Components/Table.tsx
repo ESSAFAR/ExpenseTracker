@@ -1,4 +1,5 @@
 import { useState, FormEvent, useEffect } from "react";
+import { AiFillDelete } from "react-icons/ai";
 
 interface Product {
   productName: String;
@@ -28,7 +29,7 @@ const Table = ({ productList , onDelete}: TableProps) => {
     <>
       <div className="filterList">
         <select 
-        onChange={()=>setDisplayedProductlist(productList.filter((product)=>event.target.value ==="0" || product.category=== categories[parseInt(event.target.value)-1]))}
+        onChange={(event)=>setDisplayedProductlist(productList.filter((product)=>event.target.value ==="0" || product.category=== categories[parseInt(event.target.value)-1]))}
           className="form-select form-select-lg mb-3"
           aria-label=".form-select-lg example"
         >
@@ -58,7 +59,7 @@ const Table = ({ productList , onDelete}: TableProps) => {
                 <td>{product.category}</td>
                 <td>
                   <button type="button" className="btn btn-outline-danger" onClick={()=>onDelete(product)}>
-                    Delete
+                    <AiFillDelete />
                   </button>
                 </td>
               </tr>

@@ -38,7 +38,7 @@ const Form = ({addProduct} : Props) => {
             id="product"
             className="form-control"
             placeholder="Enter your command name"
-            onChange={()=>setProduct({...product, productName : event.target.value})}
+            onChange={(event)=>setProduct({...product, productName : event.target.value})}
             value={product.productName}
           ></input>
         </div>
@@ -53,7 +53,7 @@ const Form = ({addProduct} : Props) => {
             id="amount"
             className="form-control"
             placeholder="Enter the amount "
-            onChange={()=>setProduct({...product, amount : event.target.value})}
+            onChange={(event)=>setProduct({...product, amount : parseInt(event.target.value)})}
             value={product.amount}
 
           ></input>
@@ -65,7 +65,7 @@ const Form = ({addProduct} : Props) => {
         </label>
       </div>
 
-      <select className="form-select" aria-label=".form-select-lg example " onChange={()=>setProduct({...product, category : event.target.value!==""&&event.target.value})} value={product.category}
+      <select className="form-select" aria-label=".form-select-lg example " onChange={(event)=>setProduct({...product, category : (event.target.value!=="")?event.target.value:""})} value={product.category}
 >
         <option selected>Category</option>
         <option value="1">Groceries</option>
