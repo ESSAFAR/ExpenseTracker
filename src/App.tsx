@@ -14,17 +14,17 @@ function App() {
     {
       productName: "Apple",
       amount: 2,
-      category: "Groceries",
+      category: "1",
     },
     {
       productName: "TV",
       amount: 1,
-      category: "Utilities",
+      category: "2",
     },
     {
       productName: "Movie Ticket",
       amount: 2,
-      category: "Entertainment",
+      category: "3",
     },
   ]);
 

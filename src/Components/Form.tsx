@@ -19,8 +19,8 @@ const Form = ({addProduct} : Props) => {
     category : ""
   })
 
-
-
+  
+  
   const handleSubmit = (event: FormEvent<HTMLFormElement>, addProduct : (product : Product) => void) =>{
     event.preventDefault();
     product.productName!==""&&product.category!==""&&product.amount!==0?

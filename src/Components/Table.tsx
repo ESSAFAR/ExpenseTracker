@@ -56,7 +56,7 @@ const Table = ({ productList , onDelete}: TableProps) => {
               <tr key={5}>
                 <th scope="row">{product.productName}</th>
                 <td>{product.amount}</td>
-                <td>{product.category}</td>
+                <td>{categories[parseInt(product.category)-1]}</td>
                 <td>
                   <button type="button" className="btn btn-outline-danger" onClick={()=>onDelete(product)}>
                     <AiFillDelete />
