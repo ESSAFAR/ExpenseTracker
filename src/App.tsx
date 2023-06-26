@@ -5,11 +5,6 @@ import "./index.css";
 
 function App() {
   const [isDark, setDarkness] = useState(false);
-
-
-
-  
-
   const [productList, setproductList] = useState([
     {
       productName: "Apple",
@@ -29,7 +24,7 @@ function App() {
   ]);
 
   return (
-    <div className={isDark ? "dark " + "main fw-semibold" : "main fw-semibold " + "container"}>
+    <div className={isDark ? "dark " + "main fw-semibold" : "main fw-semibold container-fluid "}>
       <div className="form-check form-switch">
         <input
           onChange={() => setDarkness(!isDark)}
