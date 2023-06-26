@@ -24,7 +24,7 @@ function App() {
   ]);
 
   return (
-    <div className={isDark ? "dark " + "main fw-semibold" : "main fw-semibold container-fluid "}>
+    <div className={isDark ? "dark " + "main fw-semibold container-fluid" : "main fw-semibold container-fluid "}>
       <div className="form-check form-switch">
         <input
           onChange={() => setDarkness(!isDark)}

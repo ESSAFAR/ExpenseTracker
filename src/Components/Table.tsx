@@ -29,7 +29,7 @@ const Table = ({ productList , onDelete}: TableProps) => {
     <>
       <div className="filterList">
         <select 
-        onChange={(event)=>setDisplayedProductlist(productList.filter((product)=>event.target.value ==="0" || product.category=== categories[parseInt(event.target.value)-1]))}
+        onChange={(event)=>setDisplayedProductlist(productList.filter((product)=>event.target.value ==="0" || product.category=== event.target.value))}
           className="form-select form-select-lg mb-3"
           aria-label=".form-select-lg example"
         >

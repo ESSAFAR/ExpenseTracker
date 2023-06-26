@@ -1,4 +1,7 @@
 import { FormEvent, useState } from "react";
+import { GoAlertFill } from "react-icons/go";
+
+
 
 interface Product {
   productName: string;
@@ -19,13 +22,21 @@ const Form = ({addProduct} : Props) => {
     category : ""
   })
 
+  const [isValid, setValid] = useState(true);
+
+
   
   
   const handleSubmit = (event: FormEvent<HTMLFormElement>, addProduct : (product : Product) => void) =>{
     event.preventDefault();
-    product.productName!==""&&product.category!==""&&product.amount!==0?
-    addProduct(product):alert("Enter valid information about expense");
+    if(product.productName!==""&&product.category!==""&&product.amount!==0){
+      addProduct(product);
+      setValid(true)
+    }
+    else
+      setValid(false);
   }
+
   return (
     <form onSubmit={(event)=>handleSubmit(event, addProduct)}>
       <div className="mb-3">
@@ -76,6 +87,7 @@ const Form = ({addProduct} : Props) => {
       <button type="submit" className="btn btn-primary submit" >
         Submit
       </button>
+      <div className={isValid?"d-none":"alert alert-warning"}><GoAlertFill />  All fields must be filled with correct values</div>
     </form>
   );
 };
