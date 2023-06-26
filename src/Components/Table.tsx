@@ -1,4 +1,4 @@
-import { useState, FormEvent, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { AiFillDelete } from "react-icons/ai";
 
 interface Product {
